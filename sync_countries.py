@@ -2,6 +2,7 @@ from neon import NeonConnection
 from os import path
 
 conn = NeonConnection()
+_ = conn.execute("delete from countries returning id;")
 for line in open(path.join(path.dirname(__file__), "extra", "countries.txt"), "r"):
     country, country_code = line.strip().split("\t")
     print(
